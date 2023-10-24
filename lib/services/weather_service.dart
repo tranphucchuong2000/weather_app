@@ -13,7 +13,6 @@ class WeatherService {
   Future<WeatherData> processData(lat, lon) async {
     var response = await http.get(Uri.parse(apiURL(lat, lon)));
     var jsonString = jsonDecode(response.body);
-    print("WeatherDataCurrent.fromJson(jsonString) :${jsonString}");
     weatherData = WeatherData(
         WeatherDataCurrent.fromJson(jsonString),
         WeatherDataHourly.fromJson(jsonString),
